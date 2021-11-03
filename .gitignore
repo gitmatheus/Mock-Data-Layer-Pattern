@@ -1,0 +1,6 @@
+
+.eslintignore
+.husky/pre-commit
+.prettierignore
+.prettierrc
+.forceignore
