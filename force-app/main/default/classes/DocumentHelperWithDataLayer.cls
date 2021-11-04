@@ -2,12 +2,11 @@
  * @description       : Helper Class for operations containing Document__c with Data Layer
  * @author            : contact@matheus.dev
  * @group             :
- * @last modified on  : 11-03-2021
+ * @last modified on  : 11-04-2021
  * @last modified by  : contact@matheus.dev
  **/
 public with sharing class DocumentHelperWithDataLayer {
     // Create a private dataLayer here
-    // TODO
     private IDataLayer dataLayer;
 
     // For an empty constructor, you create a new instance of the DataLayer:
@@ -27,9 +26,6 @@ public with sharing class DocumentHelperWithDataLayer {
         List<Document__c> documentsToProcess = dataLayer.getDocumentsLinkedToAccounts(
             newMap
         );
-        // List<Document__c> documentsToProcess = getDocumentsLinkedToAccounts(
-        //     newMap
-        // );
         for (Document__c doc : documentsToProcess) {
             doc.Name = buildDocName(doc.Account__r.Name, doc.Contract__r.Name);
         }
@@ -43,7 +39,6 @@ public with sharing class DocumentHelperWithDataLayer {
     }
 
     // Create DataLayer class here
-    // TODO
     public class DataLayer implements IDataLayer {
         public List<Document__c> getDocumentsLinkedToAccounts(
             Map<ID, Account> newMap
@@ -57,7 +52,6 @@ public with sharing class DocumentHelperWithDataLayer {
     }
 
     // Create Interface here:
-    // TODO
     public interface IDataLayer {
         List<Document__c> getDocumentsLinkedToAccounts(Map<ID, Account> newMap);
     }

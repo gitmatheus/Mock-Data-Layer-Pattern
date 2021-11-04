@@ -1,8 +1,8 @@
 /**
- * @description       :
+ * @description       : Account Trigger Handler
  * @author            : contact@matheus.dev
  * @group             :
- * @last modified on  : 11-02-2021
+ * @last modified on  : 11-04-2021
  * @last modified by  : contact@matheus.dev
  **/
 public without sharing class AccountTriggerHandler {
@@ -39,7 +39,7 @@ public without sharing class AccountTriggerHandler {
     ) {
         // Invokes our Document Helper
         // And gets a list of documents to update
-        DocumentHelper docHelper = new DocumentHelper();
+        DocumentHelperWithDataLayer docHelper = new DocumentHelperWithDataLayer();
         List<Document__c> documentsForUpdate = docHelper.getDocumentsForUpdate(
             newMap
         );
