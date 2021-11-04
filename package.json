@@ -1,0 +1,53 @@
+{
+    "name": "data-layer-2021",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Mock Data Layer",
+    "engines": {
+        "node": "16.8.0",
+        "npm": "7.21.0"
+    },
+    "devDependencies": {
+        "@salesforce/eslint-config-lwc": "2.2.0",
+        "@salesforce/sfdx-lwc-jest": "1.0.1",
+        "eslint": "7.32.0",
+        "husky": "7.0.2",
+        "lint-staged": "11.1.2",
+        "npm": "7.21.0",
+        "npx": "10.2.2",
+        "prettier": "2.4.0",
+        "prettier-plugin-apex": "1.10.0"
+    },
+    "scripts": {
+        "clean": "npm run clean:tests && npm run clean:logs",
+        "clean:tests": "rm -rf tests",
+        "clean:logs": "rm -rf logs",
+        "create-package-version": "./scripts/create-package-version.sh",
+        "create-scratch-org": "./scripts/create-scratch-org.sh",
+        "postinstall": "husky install && chmod -R u+x .husky",
+        "prettier:verify": "prettier --list-different '{src,force-*,scripts}/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}'",
+        "prettier": "prettier --write '{src,force-*,scripts}/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}'",
+        "test": "npm run clean:tests && npm run test:lwc && npm run test:apex",
+        "test:coverage": "npm run clean:tests && npm run test:lwc:coverage && npm run test:apex:coverage",
+        "test:apex": "npm run test:apex:suite1 && npm run test:apex:suite2 && npm run test:apex:suite3 && npm run test:apex:suite4 && npm run test:apex:suite5",
+        "test:apex:coverage": "npm run test:apex:suite1:coverage && npm run test:apex:suite2:coverage && npm run test:apex:suite3:coverage && npm run test:apex:suite4:coverage && npm run test:apex:suite5:coverage",
+        "test:apex:suite1": "sfdx force:apex:test:run --resultformat human --suitenames Trlhd_Tests_S_Z --wait 30 --outputdir='tests/apex'",
+        "test:apex:suite1:coverage": "npm run test:apex:suite1 -- --codecoverage",
+        "test:apex:suite2": "sfdx force:apex:test:run --resultformat human --suitenames Trlhd_Tests_M_R --wait 30 --outputdir='tests/apex'",
+        "test:apex:suite2:coverage": "npm run test:apex:suite2 -- --codecoverage",
+        "test:apex:suite3": "sfdx force:apex:test:run --resultformat human --suitenames Trlhd_Tests_G_L --wait 30 --outputdir='tests/apex'",
+        "test:apex:suite3:coverage": "npm run test:apex:suite3 -- --codecoverage",
+        "test:apex:suite4": "sfdx force:apex:test:run --resultformat human --suitenames Trlhd_Tests_C_F --wait 30 --outputdir='tests/apex'",
+        "test:apex:suite4:coverage": "npm run test:apex:suite4 -- --codecoverage",
+        "test:apex:suite5": "sfdx force:apex:test:run --resultformat human --suitenames Trlhd_Tests_A_B --wait 30 --outputdir='tests/apex'",
+        "test:apex:suite5:coverage": "npm run test:apex:suite5 -- --codecoverage",
+        "test:lwc": "sfdx-lwc-jest --skipApiVersionCheck",
+        "test:lwc:coverage": "sfdx-lwc-jest --skipApiVersionCheck --coverage -- --coverageDirectory tests/jest"
+    },
+    "lint-staged": {
+        "*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}": "prettier --write"
+    },
+    "dependencies": {
+        "node": "16.8.0"
+    }
+}
