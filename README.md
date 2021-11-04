@@ -1,18 +1,44 @@
-# Salesforce DX Project: Next Steps
+# Mock Data Layer Pattern
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+###### _Presented by [Matheus Gonçalves](https://matheus.dev)_
 
-## How Do You Plan to Deploy Your Changes?
+Files used in this exploratory presentation:
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+```
+force-app
+    main
+        default
+            classes
+                ◦ AccountTriggerHandler.cls
+                ◦ DataLayerHandler.cls
+                ◦ DocumentHelper.cls
+                ◦ DocumentHelperTest.cls
+                ◦ DocumentHelperWithDataLayer
+                ◦ DocumentHelperWithDataLayerTest
+                ◦ TestDataFactory.cls
+                ◦ TestUtils.cls
+            triggers
+                ◦ AccountTrigger.trigger
+```
 
-## Configure Your Salesforce DX Project
+---
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+![Mock Data Layer](https://matheus.dev/wp-content/uploads/2018/04/code_blocks_flying_matheus_goncalves.jpg)
 
-## Read All About It
+---
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+**A**pex tests are essential to the overall health of your Salesforce org. The Apex testing framework enables you to write and execute tests for your Apex classes and triggers on the Lightning Platform. Apex unit tests ensure high quality for your Apex code and let you meet the requirements for deploying Apex.
+
+It's very common to have a Test Factory for your Apex tests, creating several records, which is absolutely needed especially when testing bulk processing operations.
+
+However, besides bulk testing, you may want to test a singular method from a Helper class or run your tests with fake data. Here, instead of inserting real records in your Salesforce org, you can use the Data Layer pattern, and implement an interface that will allow you to run tests with mock data, which makes your tests run a lot faster.
+
+You can mock virtually any relationship if you use a Mock Data Layer Pattern, by adding an `Interface` to your Helper class. Let’s call it `IDataLayer`.
+
+Add this new Interface to the Helper class (here, called `DocumentHelperDataLayer.cls`).
+
+More details at [matheus.dev](https://matheus.dev/unit-test-mock-relationships-apex/).
+
+---
+
+Originally presented at [Salesforce Developer Group, Tampa, United States](https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-tampa-united-states-presents-speeding-up-your-apex-tests-with-a-mock-data-layer-pattern/).
