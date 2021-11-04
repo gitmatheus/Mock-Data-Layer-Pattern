@@ -1,6 +1,14 @@
-
 .eslintignore
 .husky/pre-commit
 .prettierignore
 .prettierrc
 .forceignore
+.sfdx
+.sfdx/*
+sfdx
+sfdx/*
+.node_modules
+.node_modules/*
+node_modules
+node_modules/*
+

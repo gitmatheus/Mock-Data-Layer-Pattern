@@ -1,11 +1,11 @@
 /**
- * @description       : 
+ * @description       :
  * @author            : contact@matheus.dev
- * @group             : 
+ * @group             :
  * @last modified on  : 11-02-2021
  * @last modified by  : contact@matheus.dev
-**/
-trigger DocumentTrigger on Document__c (
+ **/
+trigger AccountTrigger on Account(
     before insert,
     before update,
     before delete,
@@ -13,7 +13,7 @@ trigger DocumentTrigger on Document__c (
     after update,
     after delete
 ) {
-    DocumentTriggerHandler handler = new DocumentTriggerHandler();
+    AccountTriggerHandler handler = new AccountTriggerHandler();
 
     if (Trigger.isBefore && Trigger.isInsert) {
         handler.handleBeforeInsert(Trigger.new);
