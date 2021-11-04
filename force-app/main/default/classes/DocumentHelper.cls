@@ -6,10 +6,6 @@
  * @last modified by  : contact@matheus.dev
  **/
 public with sharing class DocumentHelper {
-    public DocumentHelper() {
-        // TODO
-    }
-
     // Create the list of Documents for new Accounts
     public List<Document__c> getDocumentsForInsert(Map<ID, Account> newMap) {
         List<Document__c> documentsForInsert = new List<Document__c>{};
@@ -24,8 +20,11 @@ public with sharing class DocumentHelper {
         return documentsForInsert;
     }
 
+    // ==================================================
+    // New Requirement, recently requested
+    // ==================================================
+
     // Make changes to the list of documents Documents
-    // >>>>>> New Requirement, recently requested
     public List<Document__c> getDocumentsForUpdate(Map<ID, Account> newMap) {
         List<Document__c> documentsToProcess = getDocumentsLinkedToAccounts(
             newMap
@@ -38,12 +37,7 @@ public with sharing class DocumentHelper {
     }
 
     private String buildDocName(String accountName, String contractName) {
-        String result = 'Document: ' + accountName;
-
-        // If the Document is linked to a Contract, add the contract name
-        if (String.isNotBlank(contractName)) {
-            result = result + ' | ' + contractName;
-        }
+        String result = 'Document: ' + accountName + ' | ' + contractName;
         return result;
     }
 
