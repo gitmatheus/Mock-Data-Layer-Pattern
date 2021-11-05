@@ -2,6 +2,12 @@
 
 ###### _Presented by [Matheus Gonçalves](https://matheus.dev)_
 
+[![Mock Data Layer](https://matheus.dev/wp-content/uploads/2021/11/MockDataLayerPattern_cover.png)](https://www.youtube.com/watch?v=kuJaa6G2O9I)
+
+Originally presented at [Salesforce Developer Group, Tampa, United States](https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-tampa-united-states-presents-speeding-up-your-apex-tests-with-a-mock-data-layer-pattern/).
+
+---
+
 Files used in this exploratory presentation:
 
 ```
@@ -20,12 +26,6 @@ force-app
             triggers
                 ◦ AccountTrigger.trigger
 ```
-
----
-
-[![Mock Data Layer](https://matheus.dev/wp-content/uploads/2021/11/MockDataLayerPattern_cover.png)](https://www.youtube.com/watch?v=kuJaa6G2O9I)
-
-Originally presented at [Salesforce Developer Group, Tampa, United States](https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-tampa-united-states-presents-speeding-up-your-apex-tests-with-a-mock-data-layer-pattern/).
 
 ---
 
