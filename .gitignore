@@ -5,8 +5,6 @@
 # Salesforce cache
 .sf/
 .sfdx/
-.localdevserver/
-deploy-options.json
 
 # LWC VSCode autocomplete
 **/lwc/jsconfig.json
@@ -38,8 +36,3 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
-
-# Presentation
-video/
-.prettierignore
-.prettierrc
